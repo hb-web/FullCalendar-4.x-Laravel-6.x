@@ -24,6 +24,7 @@ class EventRequest extends FormRequest
     public function rules()
     {
         return [
+             
             'title' => 'required|min:3',
             'start' => 'date_format:Y-m-d H:i:s|before:end',
             'end' => 'date_format:Y-m-d H:i:s|after:start',
@@ -33,12 +34,12 @@ class EventRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Preencha o campo Título do Evento!',
-            'title.min' => 'Título do Evento necessita ter pelo menos 03 caracteres!',
-            'start.date_format' => 'Preencha uma Data Inicial com valor válido!',
-            'start.before' => 'A Data/Hora Inicial deve ser menor que a Data Final!',
-            'end.date_format' => 'Preencha uma Data Final com valor válido!',
-            'end.after' => 'A Data/Hora Final deve ser maior que a Data Inicial!',
+            'title.required' => "Remplissez le champ Nom de l'événement!",
+            'title.min' => "Le titre de l'événement doit comporter au moins 03 caractères!",
+            'start.date_format' => "Remplissez une date de début avec un montant valide!",
+            'start.before' => "La date / heure de début doit être inférieure à la date de fin!",
+            'end.date_format' => "Remplissez une date finale avec une valeur valide!",
+            'end.after' => "La date / heure de fin doit être supérieure à la date de début!",
         ];
     }
 

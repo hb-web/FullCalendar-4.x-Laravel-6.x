@@ -10,7 +10,7 @@ class Event extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'start', 'end', 'color', 'description'];
+    protected $fillable = ['title','ClassETprof','type_event','cour', 'prof','start', 'end', 'color', 'description','etat'];
 
     public function getStartAttribute($value)
     {

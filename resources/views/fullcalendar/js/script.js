@@ -116,6 +116,7 @@ $(function () {
    $(".saveEvent").click(function () {
 
        let id = $("#modalCalendar input[name='id']").val();
+       let filiere = $("#modalCalendar input[name='filiere']").val();
 
        let title = $("#modalCalendar input[name='title']").val();
 
@@ -128,6 +129,7 @@ $(function () {
        let description = $("#modalCalendar textarea[name='description']").val();
 
        let Event = {
+        filiere,
            title: title,
            start: start,
            end: end,

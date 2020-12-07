@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var calendarEl = document.getElementById('calendar');
     var calendar = new Calendar(calendarEl, {
+        initialView: 'resourceTimeGridDay',
         plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
         header: {
             left: 'prev,next today',
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
         },
         navLinks: true,
-        locale: 'pt-br',
+        locale: 'fr',
         navLinks: true,
         eventLimit: true,
         selectable:true,
@@ -80,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let id = element.event.id;
             $("#modalCalendar input[name='id']").val(id);
+            let filiere = element.event.filiere;
+            $("#modalCalendar input[name='title']").val(filiere);
 
             let title = element.event.title;
             $("#modalCalendar input[name='title']").val(title);
@@ -119,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             $("#modalCalendar input[name='id']").val('');
 
             $("#modalCalendar").modal('show');
-            $("#modalCalendar #titleModal").text('Adicionar Evento');
+            $("#modalCalendar #titleModal").text('Adicionar Evento1');
             $("#modalCalendar button.deleteEvent").css("display","none");
 
             let start = moment(element.start).format("DD/MM/YYYY HH:mm:ss");

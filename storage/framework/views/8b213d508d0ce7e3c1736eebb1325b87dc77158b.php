@@ -1,0 +1,1 @@
+ <?php /**PATH C:\Users\BADR\Desktop\FullCalendar-4.x-Laravel-6.x\resources\views/admin/mediaCours.blade.php ENDPATH**/ ?>

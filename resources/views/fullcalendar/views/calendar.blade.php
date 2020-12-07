@@ -1,4 +1,4 @@
-@extends('fullcalendar.template.master')
+{{-- @extends('fullcalendar.template.master')
 @section('content')
 
     @include('fullcalendar.modais.events')
@@ -43,5 +43,12 @@
         data-route-fast-event-update="{{ route('routeFastEventUpdate') }}"
         data-route-fast-event-store="{{ route('routeFastEventStore') }}">
     </div>
+ 
+
 
 @endsection
+@if (Session::has('email'))
+
+<h3>email : {{Session::get('email')}}</h3>
+<h3>filiére : {{Session::get('filiere')}}</h3>
+ @endif --}}

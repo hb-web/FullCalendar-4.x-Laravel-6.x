@@ -13,6 +13,7 @@ class EventTableSeeder extends Seeder
     {
         \Illuminate\Support\Facades\DB::table('events')->insert([
             [
+                'filier' => 'Reunião',
                 'title' => 'Reunião',
                 'start' => '2019-10-11 21:30:00',
                 'end' => '2019-10-12 21:30:00',
@@ -20,6 +21,7 @@ class EventTableSeeder extends Seeder
                 'description' => 'Reunião com cliente'
             ],
             [
+                'filier' => 'Reunião',
                 'title' => 'Ligar p/cliente',
                 'start' => '2019-10-02',
                 'end' => '2019-10-03',

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset='utf-8'/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,11 +18,13 @@
 <div style='clear:both'></div>
 
 <script src='{{asset('assets/fullcalendarNPM/js/fullcalendar.js')}}'></script>
+
 <script src='{{asset('assets/fullcalendarNPM/js/jquery-and-mask-and-moment.js')}}'></script>
 <script src='{{asset('assets/fullcalendarNPM/js/bootstrap.js')}}'></script>
 
-<script src='{{asset('assets/fullcalendarNPM/js/scriptCalendar.js')}}'></script>
+{{-- <script src='{{asset('assets/fullcalendarNPM/js/scriptCalendar.js')}}'></script> --}}
+<script src='{{asset('assets/fullcalendarNPM/js/scriptCalendarEleve.js')}}'></script>
 
-
+ 
 </body>
 </html>

@@ -9,5 +9,5 @@ class FastEvent extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'start', 'end', 'color'];
+    protected $fillable = ['filiere', 'title','start', 'end', 'color'];
 }
