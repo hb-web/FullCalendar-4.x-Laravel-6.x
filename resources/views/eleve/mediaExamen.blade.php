@@ -123,20 +123,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- bradcam_area_end  -->
-
-	<!-- <iframe src="https://docs.google.com/gview?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true" style="width:100%; height:700px;"></iframe> -->
-	<!-- <iframe src="assets/upload/cours/mecanique.pdf" style="width:800px; height:500px;" frameborder="0"></iframe> -->
-	<!-- <iframe src="assets/upload/cours/mecanique.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width:600px; height:500px;"></iframe> -->
-	<!-- <embed src="'.$baseurl.'assets/upload/cours/mecanique.pdf" type="text/html" > -->
-
-	<!-- <video width="600" height="350" controls controlsList="nodownload"> 
-    	<source src="https://www.youtube.com/watch?v=NM4KN4yo3pw" type="video/mp4"> 
-		</video>  -->
-
- 
-
-
+	
 	<div class="event_details_area section__padding">
 		<div class="container">
 			<div class="row">

@@ -10,6 +10,7 @@ use App\Matiere;
 use App\live;
 use App\Professeur;
 use App\User;
+use App\Parents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -77,8 +78,35 @@ Route::get('dashboard', function (Request $request) {
                 $request->session()->forget('idAdmin');
                 return view("admin.dashboard",compact(['users','class','examens','lives'])); 
 
-            } 
-            
+            }else{
+                if(Session::get('idParent'))
+                {
+                    $Parent=Session::get('idParent');
+                     
+                    $users=Parents::all();
+                    print_r($users);
+                    die;
+
+
+                    // ->join('classes','users.id_class','classes.id')
+                    // ->join('ligne_class_profs','ligne_class_profs.Class','classes.id')
+                    // ->where('ligne_class_profs.Prof',$prof)->count();
+
+                    //$class=LigneClassProf::where('Prof',$prof)->count();
+                    //$lives = live::where('prof',$prof)->count();
+                    //$examens = Examen::where('prof',$prof)->count(); 
+                    //$request->session()->forget('idAdmin');
+                    //return view("admin.dashboard",compact(['users','class','examens','lives'])); 
+                    
+
+                }else{   
+                    return redirect('/');
+                }
+
+
+            }
+
+           
         }   
     });
 Route::get('/mycalender/{class}/{id}','EventController@mycalender');
@@ -322,3 +350,19 @@ Route::get('listReclamationProf',function () {
     Session::put('cntEvent', $events);
      return view("admin.listReclamationProf"); 
 });
+
+//login parent
+
+Route::get('login_parents', function (Request $request) { 
+    $request->session()->forget('idprof');
+    $request->session()->forget('idAdmin');
+    $request->session()->forget('idParent');
+    return view("security.login_parent");});
+Route::post('checkLoginParent', 'LoginController@checkLoginParent')->name('checkLoginParent');
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ use App\Professeur;
 use App\Matiere;
 use Illuminate\Support\Facades\Redirect;
 use Session;
-
+use App\Parents;
 class LoginController extends Controller
 {
     /**
@@ -19,6 +19,47 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+public function checkLoginParent(Request $request)
+{
+    $request->validate([
+        'email'    =>  'required',
+        'pass'     =>  'required'
+    ]);
+
+    $email=$request->input('email');
+    $pass=$request->input('pass');
+    $parents=Parents::select('parents.*','title')
+    ->join('roles','roles.id','parents.role')
+    ->where('email',$email)->first(); 
+    
+  if (!$parents) { 
+   return view('security.login_parent', [ 'errorMessageDuration' => 'Ce compte Parent est introuvable']);
+ }else{
+    if (!Hash::check($pass, $parents->password)) { 
+        return view('security.login_parent', [
+            'errorMessageDuration' => 'Votre mot de passe est incorrect'
+            ]);
+        }else{   
+                Session::put('idParent', $parents->id);
+                Session::put('fonction', $parents->title);
+                Session::put('emailParent', $parents->email);
+                Session::put('NomParent', $parents->name." ".$parents->prenom);
+            
+            
+            // if($admin->title="HB")
+            // { 
+                 return redirect('dashboard');
+
+            // }
+            
+             
+        }
+    }
+}
+
+
+
 
     public function register()
     {

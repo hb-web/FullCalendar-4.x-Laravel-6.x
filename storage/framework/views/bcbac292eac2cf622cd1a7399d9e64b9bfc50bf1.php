@@ -27,31 +27,31 @@
 												<h4>You have 15 new messages</h4>
 												<ul class="clearfix">
 													<li class="clearfix">
-														<a href="#" class="message-thumb"><img src="{{asset('assets/images/avatar/adellecharles.jpg')}}" alt="image">
+														<a href="#" class="message-thumb"><img src="<?php echo e(asset('assets/images/avatar/adellecharles.jpg')); ?>" alt="image">
 														</a><a href="#" class="message-intro"><span class="message-meta">Adellecharles2 </span>Nunc aliquam dolor... <span class="message-time">today at 10:20 pm</span></a>
 													</li>
 													<li class="clearfix">
-														<a href="#" class="message-thumb"><img src="{{asset('assets/images/avatar/allisongrayce.jpg')}}" alt="image">
+														<a href="#" class="message-thumb"><img src="<?php echo e(asset('assets/images/avatar/allisongrayce.jpg')); ?>" alt="image">
 														</a><a href="#" class="message-intro"><span class="message-meta">Allisongrayce </span>In hac habitasse ... <span class="message-time">today at 8:29 pm</span></a>
 													</li>
 													<li class="clearfix">
-														<a href="#" class="message-thumb"><img src="{{asset('assets/images/avatar/amarkdalen.jpg')}}" alt="image">
+														<a href="#" class="message-thumb"><img src="<?php echo e(asset('assets/images/avatar/amarkdalen.jpg')); ?>" alt="image">
 														</a><a href="#" class="message-intro"><span class="message-meta">Amarkdalen </span>Suspendisse ac mauris ... <span class="message-time">yesterday at 12:29 pm</span></a>
 													</li>
 													<li class="clearfix">
-														<a href="#" class="message-thumb"><img src="{{asset('assets/images/avatar/annapickard.jpg')}}" alt="image">
+														<a href="#" class="message-thumb"><img src="<?php echo e(asset('assets/images/avatar/annapickard.jpg')); ?>" alt="image">
 														</a><a href="#" class="message-intro"><span class="message-meta">Annapickard </span>Vivamus lacinia facilisis... <span class="message-time">yesterday at 11:48 pm</span></a>
 													</li>
 													<li class="clearfix">
-														<a href="#" class="message-thumb"><img src="{{asset('assets/images/avatar/bobbyjkane.jpg')}}" alt="image">
+														<a href="#" class="message-thumb"><img src="<?php echo e(asset('assets/images/avatar/bobbyjkane.jpg')); ?>" alt="image">
 														</a><a href="#" class="message-intro"><span class="message-meta">Bobbyjkane </span>Donec vel iaculis ... <span class="message-time">1 month ago</span></a>
 													</li>
 													<li class="clearfix">
-														<a href="#" class="message-thumb"><img src="{{asset('assets/images/avatar/chexee.jpg')}}" alt="image">
+														<a href="#" class="message-thumb"><img src="<?php echo e(asset('assets/images/avatar/chexee.jpg')); ?>" alt="image">
 														</a><a href="#" class="message-intro"><span class="message-meta">Chexee </span> Curabitur eget blandit...<span class="message-time">3 months ago</span></a>
 													</li>
 													<li class="clearfix">
-														<a href="#" class="message-thumb"><img src="{{asset('assets/images/avatar/coreyweb.jpg')}}" alt="image">
+														<a href="#" class="message-thumb"><img src="<?php echo e(asset('assets/images/avatar/coreyweb.jpg')); ?>" alt="image">
 														</a><a href="#" class="message-intro"><span class="message-meta">Coreyweb </span>Etiam molestie nulla... <span class="message-time">1 year ago</span></a>
 													</li>
 												</ul>
@@ -61,11 +61,12 @@
 									</li>
 									<li class="dropdown"><a href="#" data-toggle="dropdown" class="hide-small-device waves-effect "><i class="fa fa-bell"></i>
 									<span class="alert-bubble">
-										@if(Session::get('cntEvent'))
-											{{Session::get('cntEvent')}}
-										@else
+										<?php if(Session::get('cntEvent')): ?>
+											<?php echo e(Session::get('cntEvent')); ?>
+
+										<?php else: ?>
 											0
-										@endif
+										<?php endif; ?>
 										</span></a>
 										<div role="menu" class="dropdown-menu notification-dropdown fadeInUp noty-lists hide-small-device">
 											<div class="notification-wrap">
@@ -97,31 +98,31 @@
 								<div class="user-nav">
 									<ul> 
 										<li class="dropdown">
-											@if(Session::has('idprof'))
+											<?php if(Session::has('idprof')): ?>
 											<a data-toggle="dropdown" href="#" class="clearfix dropdown-toggle waves-effect waves-block waves-classic">
-												<span class="user-info">{{ Session::get('NomProf')}}<cite>{{ Session::get('emailProf')}}</cite></span>
-												<span class="user-thumb"><img src="{{asset('assets/images/avatar/jaman.jpg')}}" alt="image"></span>
+												<span class="user-info"><?php echo e(Session::get('NomProf')); ?><cite><?php echo e(Session::get('emailProf')); ?></cite></span>
+												<span class="user-thumb"><img src="<?php echo e(asset('assets/images/avatar/jaman.jpg')); ?>" alt="image"></span>
 											</a>
-											@else
-												@if(Session::has('idAdmin'))
+											<?php else: ?>
+												<?php if(Session::has('idAdmin')): ?>
 												<a data-toggle="dropdown" href="#" class="clearfix dropdown-toggle waves-effect waves-block waves-classic">
-													<span class="user-info">{{ Session::get('NomAdmin')}}<cite>{{ Session::get('emailAdmin')}}</cite></span>
-													<span class="user-thumb"><img src="{{asset('assets/images/avatar/jaman.jpg')}}" alt="image"></span>
+													<span class="user-info"><?php echo e(Session::get('NomAdmin')); ?><cite><?php echo e(Session::get('emailAdmin')); ?></cite></span>
+													<span class="user-thumb"><img src="<?php echo e(asset('assets/images/avatar/jaman.jpg')); ?>" alt="image"></span>
 												</a>
-												@else
-													@if(Session::has('idParent'))
+												<?php else: ?>
+													<?php if(Session::has('idParent')): ?>
 													<a data-toggle="dropdown" href="#" class="clearfix dropdown-toggle waves-effect waves-block waves-classic">
-														<span class="user-info">{{ Session::get('NomParent')}}<cite>{{ Session::get('emailParent')}}</cite></span>
-														<span class="user-thumb"><img src="{{asset('assets/images/avatar/jaman.jpg')}}" alt="image"></span>
+														<span class="user-info"><?php echo e(Session::get('NomParent')); ?><cite><?php echo e(Session::get('emailParent')); ?></cite></span>
+														<span class="user-thumb"><img src="<?php echo e(asset('assets/images/avatar/jaman.jpg')); ?>" alt="image"></span>
 													</a>
 
 
-													@endif
+													<?php endif; ?>
 
-												@endif
+												<?php endif; ?>
 
 
-											@endif
+											<?php endif; ?>
 											<ul role="menu" class="dropdown-menu fadeInUp" style="top: 62px;width: 180px;">
 												<li><a href="#"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
 												</li>
@@ -137,22 +138,25 @@
 									
 								</div>
 								 <h1>
-									@if(Session::has('idprof'))
-									 	Matiére : {{ Session::get('nomMatiere')}}
-									@else
-										@if(Session::has('idAdmin'))
-											{{ Session::get('fonction')}}
-										@else
-											@if(Session::has('idParent'))
-												{{ Session::get('fonction')}}
-											@endif
-										@endif
+									<?php if(Session::has('idprof')): ?>
+									 	Matiére : <?php echo e(Session::get('nomMatiere')); ?>
 
-								 @endif
+									<?php else: ?>
+										<?php if(Session::has('idAdmin')): ?>
+											<?php echo e(Session::get('fonction')); ?>
+
+										<?php else: ?>
+											<?php if(Session::has('idParent')): ?>
+												<?php echo e(Session::get('fonction')); ?>
+
+											<?php endif; ?>
+										<?php endif; ?>
+
+								 <?php endif; ?>
 								</h1>
 								<span class="rightbar-action waves-effect"><i class="fa fa-bars"></i></span>
 							</div>
 						</div>
 					</div>
 				</div>
-			</header>
+			</header><?php /**PATH C:\Users\hb\Desktop\FullCalendar-4.x-Laravel-6.x\resources\views/layouts/header.blade.php ENDPATH**/ ?>

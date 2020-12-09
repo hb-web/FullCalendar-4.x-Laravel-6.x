@@ -446,6 +446,7 @@ class ComposerStaticInit8062cdd9abfe41bcf6633b1d23d60a18
         'App\\Mail\\SendMail' => __DIR__ . '/../..' . '/app/Mail/SendMail.php',
         'App\\Matiere' => __DIR__ . '/../..' . '/app/Matiere.php',
         'App\\NiveauScolaire' => __DIR__ . '/../..' . '/app/NiveauScolaire.php',
+        'App\\Parent' => __DIR__ . '/../..' . '/app/Parent.php',
         'App\\Permission' => __DIR__ . '/../..' . '/app/Permission.php',
         'App\\PermissionRole' => __DIR__ . '/../..' . '/app/PermissionRole.php',
         'App\\Professeur' => __DIR__ . '/../..' . '/app/Professeur.php',

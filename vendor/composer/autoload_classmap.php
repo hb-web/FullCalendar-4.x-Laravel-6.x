@@ -52,6 +52,7 @@ return array(
     'App\\Mail\\SendMail' => $baseDir . '/app/Mail/SendMail.php',
     'App\\Matiere' => $baseDir . '/app/Matiere.php',
     'App\\NiveauScolaire' => $baseDir . '/app/NiveauScolaire.php',
+    'App\\Parent' => $baseDir . '/app/Parent.php',
     'App\\Permission' => $baseDir . '/app/Permission.php',
     'App\\PermissionRole' => $baseDir . '/app/PermissionRole.php',
     'App\\Professeur' => $baseDir . '/app/Professeur.php',
