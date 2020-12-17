@@ -112,7 +112,7 @@
 																	<div class="btn-toolbar" role="toolbar">
 																		<div class="btn-group" role="group">
 																			@csrf 
-																			<a href="{{action('EtudiantController@ModifierEtudiant',$eleve->id)}}" class="btn btn-primary">Activer</a>
+																			<a href="{{action('EtudiantController@ModifierEtudiant',$eleve->id)}}" class="btn btn-primary">Modifier</a>
  																			<a href="{{action('EtudiantController@archiveEtudiant',$eleve->id)}}" class="btn btn-info">Archiver</a>
 																		</div>
 																	</div>

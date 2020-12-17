@@ -16,8 +16,6 @@ class CreateParentsTable extends Migration
         Schema::create('parents', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
-            $table->BigInteger('eleve')->unsigned();
-            $table->foreign('eleve')->references('id')->on('users');
             $table->string('name',25);
             $table->string('prenom',25);
             $table->string('télé',25);

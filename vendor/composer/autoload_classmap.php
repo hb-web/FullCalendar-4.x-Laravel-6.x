@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Administration' => $baseDir . '/app/Administration.php',
-    'App\\Class' => $baseDir . '/app/Class.php',
+    'App\\Classes' => $baseDir . '/app/Classes.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Controle' => $baseDir . '/app/Controle.php',
     'App\\Cour' => $baseDir . '/app/Cour.php',
@@ -52,7 +52,8 @@ return array(
     'App\\Mail\\SendMail' => $baseDir . '/app/Mail/SendMail.php',
     'App\\Matiere' => $baseDir . '/app/Matiere.php',
     'App\\NiveauScolaire' => $baseDir . '/app/NiveauScolaire.php',
-    'App\\Parent' => $baseDir . '/app/Parent.php',
+    'App\\Parents' => $baseDir . '/app/Parents.php',
+    'App\\Parinage' => $baseDir . '/app/Parinage.php',
     'App\\Permission' => $baseDir . '/app/Permission.php',
     'App\\PermissionRole' => $baseDir . '/app/PermissionRole.php',
     'App\\Professeur' => $baseDir . '/app/Professeur.php',
@@ -61,6 +62,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Remarque' => $baseDir . '/app/Remarque.php',
     'App\\ReponseControle' => $baseDir . '/app/ReponseControle.php',
     'App\\ReponseExamen' => $baseDir . '/app/ReponseExamen.php',
     'App\\Role' => $baseDir . '/app/Role.php',

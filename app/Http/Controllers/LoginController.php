@@ -46,12 +46,18 @@ public function checkLoginParent(Request $request)
                 Session::put('emailParent', $parents->email);
                 Session::put('NomParent', $parents->name." ".$parents->prenom);
             
-            
-            // if($admin->title="HB")
-            // { 
-                 return redirect('dashboard');
-
-            // }
+                // Session::put('classEtudiant', $eleve->id_class);
+                // Session::put('Nomclass', $eleve->nom_class);
+                // Session::put('télé', $eleve->télé);
+                // Session::put('idRole', $user->id);
+                // Session::put('titleRole', $user->title);
+                // Session::put('idUser', $user->id);
+                // Session::put('email', $user->email);
+                // Session::put('IdFiliere', $filiers->id);
+                // Session::put('filiere', $filiers->nomFiliere);
+                
+                 return redirect('accueil_parents'); 
+                
             
              
         }

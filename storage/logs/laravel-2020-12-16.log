@@ -1,0 +1,2 @@
+[2020-12-16 08:23:22] local.ERROR: SQLSTATE[HY000] [2002] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ (SQL: select `parents`.*, `title` from `parents` inner join `roles` on `roles`.`id` = `parents`.`role` where `email` = abdelghani@gmail.com limit 1)  

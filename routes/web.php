@@ -11,6 +11,7 @@ use App\live;
 use App\Professeur;
 use App\User;
 use App\Parents;
+use App\Parinage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -84,10 +85,7 @@ Route::get('dashboard', function (Request $request) {
                     $Parent=Session::get('idParent');
                      
                     $users=Parents::all();
-                    print_r($users);
-                    die;
-
-
+                    
                     // ->join('classes','users.id_class','classes.id')
                     // ->join('ligne_class_profs','ligne_class_profs.Class','classes.id')
                     // ->where('ligne_class_profs.Prof',$prof)->count();
@@ -359,7 +357,36 @@ Route::get('login_parents', function (Request $request) {
     $request->session()->forget('idParent');
     return view("security.login_parent");});
 Route::post('checkLoginParent', 'LoginController@checkLoginParent')->name('checkLoginParent');
+Route::get('accueil_parents', function (Request $request) {
+    if(session::has('idParent'))
+    {
+        $idParent= session::get('idParent');
+        $parinages=Parinage::select('users.*')
+                    //->join('parinages','parinages.parent','parents.id')
+                    ->join('users','parinages.eleve','users.id')
+                    ->where('parinages.parent',$idParent)
+                    ->get();
+                 return view('fullcalendar.views.homeParent',compact('parinages')); 
+ }
+});
 
+Route::get('enfant-{id}', function (Request $request,$id) {
+    $idParent= session::get('idParent');
+    $parinages=Parinage::select('users.*') 
+    ->join('users','parinages.eleve','users.id')
+    ->where(['parinages.parent'=>$idParent,'parinages.eleve'=>$id])
+    ->get();
+
+
+print_r($parinages);
+});
+
+Route::get('controle_parental', function () {
+    return view("fullcalendar.views.parental");
+    });
+    Route::get('controle_parental', function () {
+        return view("fullcalendar.views.parental");
+        });
 
 
 

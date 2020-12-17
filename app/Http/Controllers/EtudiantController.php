@@ -33,7 +33,19 @@ class EtudiantController extends Controller
         if($EmailUser){      
            return Redirect::back()->withErrors(['votre nom et prénom deja exist veuillez le verifier', 'The Message']);
         }else{
+
+            if($request->image)
+            {
+                $image = $request->file('image');
+                $nom_image = $image->getClientOriginalName();
+                $image->move(public_path('assets/upload/profile/etudiants/'), $nom_image);
+                
+            } else{
+                $nom_image='null';
+            }
+
         $user = new User([
+            'avatar' => $nom_image,
             'name'    => $request->nom ,
             'prenom'    => $request->prenom ,
             'email'    => $email ,
@@ -44,8 +56,11 @@ class EtudiantController extends Controller
             'password'    => $pass  
         ]);
         $user->save();
-         
-       return redirect('listEtudiant'); 
+        $output = array(
+            'success' => 'un étudiant inserer avec succès'
+             );
+             return $output;
+          
         }
     }
     
@@ -90,19 +105,19 @@ class EtudiantController extends Controller
     {
         if(Session::has('idprof'))
         {
-        $eleves=User::select('users.*','classes.nom_class','filieres.nomFiliere')
-        ->join('filieres','filieres.id','users.filiere')
-        ->join('classes','classes.id','users.id_class')
-        ->join('ligne_class_profs','ligne_class_profs.Class','classes.id')
-        ->where('ligne_class_profs.Prof',Session::get('idprof'))
-        ->orderBy('id', 'DESC')->paginate(5);
-        $FiliereClass=Filiere::select('filieres.*')
-                ->join('classes','classes.filiere','filieres.id')
-                ->join('ligne_class_profs','ligne_class_profs.Class','classes.id')
-                ->where('ligne_class_profs.Prof',Session::get('idprof'))
-                ->groupBy('id')
-                ->get();
-         return view('admin.listEtudiant',compact('eleves','FiliereClass'));
+            $eleves=User::select('users.*','classes.nom_class','filieres.nomFiliere')
+            ->join('filieres','filieres.id','users.filiere')
+            ->join('classes','classes.id','users.id_class')
+            ->join('ligne_class_profs','ligne_class_profs.Class','classes.id')
+            ->where('ligne_class_profs.Prof',Session::get('idprof'))
+            ->orderBy('id', 'DESC')->paginate(5);
+            $FiliereClass=Filiere::select('filieres.*')
+                    ->join('classes','classes.filiere','filieres.id')
+                    ->join('ligne_class_profs','ligne_class_profs.Class','classes.id')
+                    ->where('ligne_class_profs.Prof',Session::get('idprof'))
+                    ->groupBy('id')
+                    ->get();
+            return view('admin.listEtudiant',compact('eleves','FiliereClass'));
 
         }else{
             if(Session::has('idAdmin')){

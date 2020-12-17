@@ -23,7 +23,6 @@
       <div class="main-container">
         <div class="container-fluid">
           <div class="page-breadcrumb">
-            <br>
             <div class="row">
               <div class="col-md-12">
                 <div class="box-widget widget-module">
@@ -34,11 +33,19 @@
                   <div class="widget-container">
                     <div class=" widget-block">
                       <div class="page-header">
-                        <h2>Ajouter Nouveau Étudiant</h2>
+                        <h2>Ajouter Nouveau étudiant</h2>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%
+                          </div>
+                        </div>
+
+                        <br />
                       </div>
+
+
                       <form class="form-horizontal" method="POST"
                         action="{{ route('ajouterEtudiant') }}" enctype="multipart/form-data">
-                        @csrf
+                        {{csrf_field()}}
 
                         @if($errors->any())
                             <div class="alert alert-danger">
@@ -57,6 +64,12 @@
                           <label class="col-md-2 control-label">Prénom Etudiant :</label>
                           <div class=" col-md-8">
                             <input type="text" class="form-control" name="prenom" id="prenom" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Image</label>
+                          <div class="col-md-8">
+                            <input type="file" id="image" name="image"  >
                           </div>
                         </div>
 
@@ -88,10 +101,14 @@
                           <div class="col-md-8">
                             <div class="form-actions">
                               <button type="submit" class="btn btn-success">Ajouter</button>
+                              <div id="success"></div>
                             </div>
                           </div>
                         </div>
+                         
+                        
                       </form>
+
                     </div>
                   </div>
                 </div>
@@ -113,53 +130,54 @@
   @include('layouts.rightBar')
   @include('layouts.scriptDashboard')
 
-  
+
+
+
   <script>
-    $(document).ready(function () {
-      $('#Niveau').change(function () {
-        if ($(this).val() != '') {
-          var idNiveau = $(this).val();
-          var _token = $('input[name="_token"]').val();
-          $.ajax({
-            url: "{{ route('filiere') }}",
-            method: "POST",
-            data: {
-              idNiveau: idNiveau,
-              _token: _token
-            },
-            success: function (result) {
-              $("#filiere").html(result);
-            }
-          })
-        }
-      });
-
-
+    $(document).ready(function() {
       $('#niveauEtude').change(function () {
-        if ($(this).val() != '') {
-          var niveauEtude = $(this).val();
-          var _token = $('input[name="_token"]').val();
-          $.ajax({
-            url: "{{ route('filiere') }}",
-            method: "POST",
-            data: {
-              niveauEtude: niveauEtude,
-              _token: _token
-            },
-            success: function (result) {
-              $("#class").html(result);
-            }
-          })
+      if ($(this).val() != '') {
+        var niveauEtude = $(this).val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+          url: "{{ route('filiere') }}",
+          method: "POST",
+          data: {
+            niveauEtude: niveauEtude,
+            _token: _token
+          },
+          success: function (result) {
+            $("#class").html(result);
+          }
+        })
+      }
+    });
+
+      $('form').ajaxForm({
+        beforeSend: function() {
+          $('#success').empty();
+        },
+        uploadProgress: function(event, position, total, percentComplete) {
+          $('.progress-bar').text(percentComplete + '%');
+          $('.progress-bar').css('width', percentComplete + '%');
+        },
+        success: function(data) {
+          if (data.errors) {
+            $('.progress-bar').text('0%');
+            $('.progress-bar').css('width', '0%');
+            $('#success').html('<span class="text-danger"><b>' + data.errors + '</b></span>');
+          }
+          if (data.success) {
+            $('.progress-bar').text('Téléchargé');
+            $('.progress-bar').css('width', '100%');
+            $('#success').html('<span class="text-success"><b>' + data.success + '</b></span><br /><br />');
+            window.location.href = "listControles";
+          }
         }
       });
 
     });
   </script>
-  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
 </body>
-
-<!-- Mirrored from lab.westilian.com/matmix-admin/list-view/dashboard-01.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Apr 2017 21:18:01 GMT -->
 
 </html>

@@ -401,7 +401,7 @@ class ComposerStaticInit8062cdd9abfe41bcf6633b1d23d60a18
 
     public static $classMap = array (
         'App\\Administration' => __DIR__ . '/../..' . '/app/Administration.php',
-        'App\\Class' => __DIR__ . '/../..' . '/app/Class.php',
+        'App\\Classes' => __DIR__ . '/../..' . '/app/Classes.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Controle' => __DIR__ . '/../..' . '/app/Controle.php',
         'App\\Cour' => __DIR__ . '/../..' . '/app/Cour.php',
@@ -446,7 +446,8 @@ class ComposerStaticInit8062cdd9abfe41bcf6633b1d23d60a18
         'App\\Mail\\SendMail' => __DIR__ . '/../..' . '/app/Mail/SendMail.php',
         'App\\Matiere' => __DIR__ . '/../..' . '/app/Matiere.php',
         'App\\NiveauScolaire' => __DIR__ . '/../..' . '/app/NiveauScolaire.php',
-        'App\\Parent' => __DIR__ . '/../..' . '/app/Parent.php',
+        'App\\Parents' => __DIR__ . '/../..' . '/app/Parents.php',
+        'App\\Parinage' => __DIR__ . '/../..' . '/app/Parinage.php',
         'App\\Permission' => __DIR__ . '/../..' . '/app/Permission.php',
         'App\\PermissionRole' => __DIR__ . '/../..' . '/app/PermissionRole.php',
         'App\\Professeur' => __DIR__ . '/../..' . '/app/Professeur.php',
@@ -455,6 +456,7 @@ class ComposerStaticInit8062cdd9abfe41bcf6633b1d23d60a18
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Remarque' => __DIR__ . '/../..' . '/app/Remarque.php',
         'App\\ReponseControle' => __DIR__ . '/../..' . '/app/ReponseControle.php',
         'App\\ReponseExamen' => __DIR__ . '/../..' . '/app/ReponseExamen.php',
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
